@@ -7,18 +7,18 @@ type Inventory struct {
 func (i *Inventory) AddGuitar(
 	serialNumber string,
 	price float32,
-	builder string,
+	builder Builder,
 	model string,
-	gtype string,
-	backWood string,
-	topWood string,
+	gtype Type,
+	backWood Wood,
+	topWood Wood,
 ) {
 	g := &Guitar{
 		SerialNumber: serialNumber,
 		Price:        price,
 		Builder:      builder,
 		Model:        model,
-		Gtype:        gtype,
+		Type:         gtype,
 		BackWood:     backWood,
 		TopWood:      topWood,
 	}
