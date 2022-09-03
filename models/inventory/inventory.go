@@ -1,19 +1,21 @@
-package models
+package inventory
+
+import "github.com/Rindrics/ricks-guitar-app/models/guitar"
 
 type Inventory struct {
-	guitars []*Guitar
+	guitars []*guitar.Guitar
 }
 
 func (i *Inventory) AddGuitar(
 	serialNumber string,
 	price float32,
-	builder Builder,
+	builder guitar.Builder,
 	model string,
-	gtype Type,
-	backWood Wood,
-	topWood Wood,
+	gtype guitar.Type,
+	backWood guitar.Wood,
+	topWood guitar.Wood,
 ) {
-	g := &Guitar{
+	g := &guitar.Guitar{
 		SerialNumber: serialNumber,
 		Price:        price,
 		Builder:      builder,
@@ -26,7 +28,7 @@ func (i *Inventory) AddGuitar(
 	i.guitars = append(i.guitars, g)
 }
 
-func (i *Inventory) getGuitar(serialNumber string) *Guitar {
+func (i *Inventory) getGuitar(serialNumber string) *guitar.Guitar {
 	for _, g := range i.guitars {
 		if g.SerialNumber == serialNumber {
 			return g
@@ -35,7 +37,7 @@ func (i *Inventory) getGuitar(serialNumber string) *Guitar {
 	return nil
 }
 
-func (i *Inventory) Search(searchGuitar Guitar) *Guitar {
+func (i *Inventory) Search(searchGuitar guitar.Guitar) *guitar.Guitar {
 	for _, g := range i.guitars {
 		if builder := searchGuitar.getBuilder(); (builder != "") && (builder != g.getBuilder()) {
 			continue

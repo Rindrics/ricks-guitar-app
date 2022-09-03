@@ -1,4 +1,4 @@
-package models
+package guitar
 
 type Builder int
 
