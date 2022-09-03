@@ -3,27 +3,28 @@ package main
 import (
 	"testing"
 
-	"github.com/Rindrics/ricks-guitar-app/models"
+	"github.com/Rindrics/ricks-guitar-app/models/guitar"
+	"github.com/Rindrics/ricks-guitar-app/models/inventory"
 )
 
 func TestFindGuitar(t *testing.T) {
-	whatErinLikes := &models.Guitar{
-		Builder:  "fender",
+	whatErinLikes := &guitar.Guitar{
+		Builder:  guitar.FENDER,
 		Model:    "Stratocastor",
-		Gtype:    "electric",
-		BackWood: "Alder",
-		TopWood:  "Alder",
+		Type:     guitar.ELECTRIC,
+		BackWood: guitar.ALDER,
+		TopWood:  guitar.ALDER,
 	}
 
 	t.Run("ok", func(t *testing.T) {
-		inventory := &models.Inventory{}
+		inventory := &inventory.Inventory{}
 
 		inventory.AddGuitar(
 			whatErinLikes.SerialNumber,
 			1499.95,
 			whatErinLikes.Builder,
 			whatErinLikes.Model,
-			whatErinLikes.Gtype,
+			whatErinLikes.Type,
 			whatErinLikes.BackWood,
 			whatErinLikes.TopWood,
 		)
@@ -35,7 +36,7 @@ func TestFindGuitar(t *testing.T) {
 	})
 
 	t.Run("ng", func(t *testing.T) {
-		inventory := &models.Inventory{}
+		inventory := &inventory.Inventory{}
 
 		foundGuitar := inventory.Search(*whatErinLikes)
 		if foundGuitar != nil {
