@@ -42,30 +42,30 @@ type Guitar struct {
 	TopWood      Wood
 }
 
-func (g *Guitar) getSerialNumber() string {
+func (g *Guitar) GetSerialNumber() string {
 	return g.SerialNumber
 }
 
-func (g *Guitar) getPrice() float32 {
+func (g *Guitar) GetPrice() float32 {
 	return g.Price
 }
 
-func (g *Guitar) getBuilder() Builder {
+func (g *Guitar) GetBuilder() Builder {
 	return g.Builder
 }
 
-func (g *Guitar) getModel() string {
+func (g *Guitar) GetModel() string {
 	return g.Model
 }
 
-func (g *Guitar) getType() Type {
+func (g *Guitar) GetType() Type {
 	return g.Type
 }
 
-func (g *Guitar) getBackWood() Wood {
+func (g *Guitar) GetBackWood() Wood {
 	return g.BackWood
 }
 
-func (g *Guitar) getTopWood() Wood {
+func (g *Guitar) GetTopWood() Wood {
 	return g.TopWood
 }
