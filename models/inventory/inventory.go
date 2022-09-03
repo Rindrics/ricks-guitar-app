@@ -39,23 +39,23 @@ func (i *Inventory) getGuitar(serialNumber string) *guitar.Guitar {
 
 func (i *Inventory) Search(searchGuitar guitar.Guitar) *guitar.Guitar {
 	for _, g := range i.guitars {
-		if builder := searchGuitar.getBuilder(); (builder != "") && (builder != g.getBuilder()) {
+		if builder := searchGuitar.GetBuilder(); builder != g.GetBuilder() {
 			continue
 		}
 
-		if model := searchGuitar.getModel(); (model != "") && (model != g.getModel()) {
+		if model := searchGuitar.GetModel(); model != g.GetModel() {
 			continue
 		}
 
-		if gtype := searchGuitar.getGtype(); (gtype != "") && (gtype != g.getGtype()) {
+		if gtype := searchGuitar.GetType(); gtype != g.GetType() {
 			continue
 		}
 
-		if backWood := searchGuitar.getBackWood(); (backWood != "") && (backWood != g.getBackWood()) {
+		if backWood := searchGuitar.GetBackWood(); backWood != g.GetBackWood() {
 			continue
 		}
 
-		if topWood := searchGuitar.getBackWood(); (topWood != "") && (topWood != g.getBackWood()) {
+		if topWood := searchGuitar.GetBackWood(); topWood != g.GetBackWood() {
 			continue
 		}
 		return g
