@@ -1,0 +1,27 @@
+@startuml
+class Guitar {
+    +SerialNumber: string
+    +Price: float32
+    +Builder: string
+    +Model: string
+    +Gtype: string
+    +BackWood: string
+    +TopWood: string
+    +GetSerialNumber(): string
+    +GetPrice(): float32
+    +GetBuilder(): string
+    +GetModel(): string
+    +GetGtype(): string
+    +GetBackWood(): string
+    +GetTopWood(): string
+}
+
+class Inventory {
+    +Guitars: List
+    +AddGuitar(string, float32, string, string, string, string, string)
+    ~getGuitar(String): Guitar
+    +Search(Guitar): Guitar
+}
+
+Guitar <-- Inventory
+@enduml
