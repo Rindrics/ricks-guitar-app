@@ -18,11 +18,13 @@ func (i *Inventory) AddGuitar(
 	g := &guitar.Guitar{
 		SerialNumber: serialNumber,
 		Price:        price,
-		Builder:      builder,
-		Model:        model,
-		Type:         gtype,
-		BackWood:     backWood,
-		TopWood:      topWood,
+		Spec: guitar.GuitarSpec{
+			Builder:  builder,
+			Model:    model,
+			Type:     gtype,
+			BackWood: backWood,
+			TopWood:  topWood,
+		},
 	}
 
 	i.guitars = append(i.guitars, g)
@@ -37,26 +39,27 @@ func (i *Inventory) getGuitar(serialNumber string) *guitar.Guitar {
 	return nil
 }
 
-func (i *Inventory) Search(searchGuitar guitar.Guitar) []*guitar.Guitar {
+func (i *Inventory) Search(spec guitar.GuitarSpec) []*guitar.Guitar {
 	var matched []*guitar.Guitar
 	for _, g := range i.guitars {
-		if builder := searchGuitar.GetBuilder(); builder != g.GetBuilder() {
+		gs := g.GetSpec()
+		if builder := spec.GetBuilder(); builder != gs.GetBuilder() {
 			continue
 		}
 
-		if model := searchGuitar.GetModel(); model != g.GetModel() {
+		if model := spec.GetModel(); model != gs.GetModel() {
 			continue
 		}
 
-		if gtype := searchGuitar.GetType(); gtype != g.GetType() {
+		if gtype := spec.GetType(); gtype != gs.GetType() {
 			continue
 		}
 
-		if backWood := searchGuitar.GetBackWood(); backWood != g.GetBackWood() {
+		if backWood := spec.GetBackWood(); backWood != gs.GetBackWood() {
 			continue
 		}
 
-		if topWood := searchGuitar.GetBackWood(); topWood != g.GetBackWood() {
+		if topWood := spec.GetBackWood(); topWood != gs.GetBackWood() {
 			continue
 		}
 		matched = append(matched, g)
