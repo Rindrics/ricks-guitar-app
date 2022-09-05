@@ -8,13 +8,13 @@ import (
 )
 
 func TestFindGuitar(t *testing.T) {
-	whatErinLikes := guitar.GuitarSpec{
-		Builder:  guitar.FENDER,
-		Model:    "Stratocastor",
-		Type:     guitar.ELECTRIC,
-		BackWood: guitar.ALDER,
-		TopWood:  guitar.ALDER,
-	}
+	whatErinLikes := guitar.NewGuitarSpec(
+		guitar.FENDER,
+		"Stratocastor",
+		guitar.ELECTRIC,
+		guitar.ALDER,
+		guitar.ALDER,
+	)
 	serial1 := "V95693"
 	serial2 := "V9512"
 
@@ -24,14 +24,14 @@ func TestFindGuitar(t *testing.T) {
 		inventory.AddGuitar(
 			serial1,
 			1499.95,
-			whatErinLikes.Builder,
-			whatErinLikes.Model,
-			whatErinLikes.Type,
-			whatErinLikes.BackWood,
-			whatErinLikes.TopWood,
+			whatErinLikes.GetBuilder(),
+			whatErinLikes.GetModel(),
+			whatErinLikes.GetType(),
+			whatErinLikes.GetBackWood(),
+			whatErinLikes.GetTopWood(),
 		)
 
-		foundGuitar := inventory.Search(whatErinLikes)
+		foundGuitar := inventory.Search(*whatErinLikes)
 		if foundGuitar == nil {
 			t.Error("sorry, Erin")
 		}
@@ -40,7 +40,7 @@ func TestFindGuitar(t *testing.T) {
 	t.Run("ng", func(t *testing.T) {
 		inventory := &inventory.Inventory{}
 
-		foundGuitar := inventory.Search(whatErinLikes)
+		foundGuitar := inventory.Search(*whatErinLikes)
 		if foundGuitar != nil {
 			t.Errorf("expected nil, but got %v", foundGuitar)
 		}
@@ -52,24 +52,24 @@ func TestFindGuitar(t *testing.T) {
 		inventory.AddGuitar(
 			serial1,
 			1499.95,
-			whatErinLikes.Builder,
-			whatErinLikes.Model,
-			whatErinLikes.Type,
-			whatErinLikes.BackWood,
-			whatErinLikes.TopWood,
+			whatErinLikes.GetBuilder(),
+			whatErinLikes.GetModel(),
+			whatErinLikes.GetType(),
+			whatErinLikes.GetBackWood(),
+			whatErinLikes.GetTopWood(),
 		)
 
 		inventory.AddGuitar(
 			serial2,
 			1549.95,
-			whatErinLikes.Builder,
-			whatErinLikes.Model,
-			whatErinLikes.Type,
-			whatErinLikes.BackWood,
-			whatErinLikes.TopWood,
+			whatErinLikes.GetBuilder(),
+			whatErinLikes.GetModel(),
+			whatErinLikes.GetType(),
+			whatErinLikes.GetBackWood(),
+			whatErinLikes.GetTopWood(),
 		)
 
-		foundGuitars := inventory.Search(whatErinLikes)
+		foundGuitars := inventory.Search(*whatErinLikes)
 		if len(foundGuitars) != 2 {
 			t.Errorf("expect two guitars, found %v", len(foundGuitars))
 		}
