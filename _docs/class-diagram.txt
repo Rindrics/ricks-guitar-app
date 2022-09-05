@@ -19,6 +19,7 @@ class GuitarSpec {
     +GetType(): Type
     +GetBackWood(): Wood
     +GetTopWood(): Wood
+    +Matches(GuitarSpec): bool
 }
 
 class Inventory {
