@@ -1,0 +1,21 @@
+@startuml
+
+usecase LEGEND #FFFFFF as "[precondition]
+--
+[what user do]
+..
+[result]
+"
+
+actor user
+
+usecase UC1 as "A guitar with builder 'Fender' is registered
+--
+Search guitar with keyward 'fender' (lowercase)
+..
+Guitars with builder 'Fender' are shown
+"
+
+user --> UC1
+
+@enduml

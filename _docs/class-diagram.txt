@@ -2,26 +2,44 @@
 class Guitar {
     +SerialNumber: string
     +Price: float32
-    +Builder: string
+    +Builder: Builder
     +Model: string
-    +Gtype: string
-    +BackWood: string
-    +TopWood: string
+    +Type: Type
+    +BackWood: Wood
+    +TopWood: Wood
     +GetSerialNumber(): string
     +GetPrice(): float32
-    +GetBuilder(): string
+    +GetBuilder(): Builder
     +GetModel(): string
-    +GetGtype(): string
-    +GetBackWood(): string
-    +GetTopWood(): string
+    +GetType(): Type
+    +GetBackWood(): Wood
+    +GetTopWood(): Wood
 }
 
 class Inventory {
     +Guitars: List
-    +AddGuitar(string, float32, string, string, string, string, string)
+    +AddGuitar(string, float32, Builder, string, Type, Wood, Wood)
     ~getGuitar(String): Guitar
     +Search(Guitar): Guitar
 }
 
+class Builder {
+    +String()
+}
+
+class Type {
+    +String()
+}
+
+class Wood {
+    +String()
+}
+
 Guitar <-- Inventory
+
+Guitar --> Builder
+Guitar --> Type
+Guitar --> Wood
+
+
 @enduml
