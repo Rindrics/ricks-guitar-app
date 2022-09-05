@@ -51,11 +51,11 @@ func (g *Guitar) GetSpec() GuitarSpec {
 }
 
 type GuitarSpec struct {
-	Builder  Builder
-	Model    string
-	Type     Type
-	BackWood Wood
-	TopWood  Wood
+	builder  Builder
+	model    string
+	gtype    Type
+	backWood Wood
+	topWood  Wood
 }
 
 func (gs *GuitarSpec) GetBuilder() Builder {
