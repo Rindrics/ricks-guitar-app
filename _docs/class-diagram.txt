@@ -40,12 +40,12 @@ class Wood {
     +String()
 }
 
-Guitar <-- Inventory
+Guitar "many" <-- "1" Inventory
 
-Guitar --> GuitarSpec
-Inventory --> GuitarSpec
-GuitarSpec --> Builder
-GuitarSpec --> Type
-GuitarSpec --> Wood
+Guitar "1" --> "1" GuitarSpec
+Inventory "1" --> "1" GuitarSpec
+GuitarSpec --> "1" Builder
+GuitarSpec --> "1" Type
+GuitarSpec --> "1" Wood
 
 @enduml
