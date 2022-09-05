@@ -16,6 +16,14 @@ Search guitar with keyword 'fender' (lowercase)
 A guitar with builder 'Fender' is shown
 "
 
+usecase multi_hit as "Two guitars with builder 'Fender' are registered
+--
+Search guitar with keyword 'Fender'
+..
+Two guitars with builder 'Fender' are shown
+"
+
 user --> match_case
+user --> multi_hit
 
 @enduml

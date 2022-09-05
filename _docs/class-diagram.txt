@@ -20,7 +20,7 @@ class Inventory {
     +Guitars: List
     +AddGuitar(string, float32, Builder, string, Type, Wood, Wood)
     ~getGuitar(String): Guitar
-    +Search(Guitar): Guitar
+    +Search(Guitar): List
 }
 
 class Builder {
