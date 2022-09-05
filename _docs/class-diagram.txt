@@ -24,7 +24,7 @@ class GuitarSpec {
 class Inventory {
     +Guitars: List
     +AddGuitar(string, float32, Builder, string, Type, Wood, Wood)
-    ~getGuitar(String): Guitar
+    ~getGuitar(string): Guitar
     +Search(GuitarSpec): List
 }
 
@@ -43,6 +43,7 @@ class Wood {
 Guitar <-- Inventory
 
 Guitar --> GuitarSpec
+Inventory --> GuitarSpec
 GuitarSpec --> Builder
 GuitarSpec --> Type
 GuitarSpec --> Wood
