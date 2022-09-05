@@ -58,6 +58,16 @@ type GuitarSpec struct {
 	topWood  Wood
 }
 
+func NewGuitarSpec(builder Builder, model string, gtype Type, backWood, topWood Wood) *GuitarSpec {
+	return &GuitarSpec{
+		builder:  builder,
+		model:    model,
+		gtype:    gtype,
+		backWood: backWood,
+		topWood:  topWood,
+	}
+}
+
 func (gs *GuitarSpec) GetBuilder() Builder {
 	return gs.builder
 }
