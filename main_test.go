@@ -43,4 +43,34 @@ func TestFindGuitar(t *testing.T) {
 			t.Errorf("expected nil, but got %v", foundGuitar)
 		}
 	})
+
+	t.Run("multi-hit", func(t *testing.T) {
+		inventory := &inventory.Inventory{}
+
+		inventory.AddGuitar(
+			whatErinLikes.SerialNumber,
+			1499.95,
+			whatErinLikes.Builder,
+			whatErinLikes.Model,
+			whatErinLikes.Type,
+			whatErinLikes.BackWood,
+			whatErinLikes.TopWood,
+		)
+
+		inventory.AddGuitar(
+			whatErinLikes.SerialNumber,
+			1549.95,
+			whatErinLikes.Builder,
+			whatErinLikes.Model,
+			whatErinLikes.Type,
+			whatErinLikes.BackWood,
+			whatErinLikes.TopWood,
+		)
+
+		foundGuitars := inventory.Search(*whatErinLikes)
+		if len(foundGuitars) != 2 {
+			t.Errorf("expect two guitars, found %v", len(foundGuitars))
+		}
+	})
+
 }
