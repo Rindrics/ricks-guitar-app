@@ -11,7 +11,7 @@ actor user
 
 usecase match_case as "A guitar with builder 'Fender' is registered
 --
-Search guitar with keyward 'fender' (lowercase)
+Search guitar with keyword 'fender' (lowercase)
 ..
 Guitars with builder 'Fender' are shown
 "
