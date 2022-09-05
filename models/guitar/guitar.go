@@ -35,7 +35,7 @@ const (
 type Guitar struct {
 	SerialNumber string
 	Price        float32
-	Spec         GuitarSpec
+	Spec         *GuitarSpec
 }
 
 func (g *Guitar) GetSerialNumber() string {
@@ -46,7 +46,7 @@ func (g *Guitar) GetPrice() float32 {
 	return g.Price
 }
 
-func (g *Guitar) GetSpec() GuitarSpec {
+func (g *Guitar) GetSpec() *GuitarSpec {
 	return g.Spec
 }
 
