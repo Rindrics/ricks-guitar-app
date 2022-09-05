@@ -18,13 +18,13 @@ func (i *Inventory) AddGuitar(
 	g := &guitar.Guitar{
 		SerialNumber: serialNumber,
 		Price:        price,
-		Spec: guitar.GuitarSpec{
-			Builder:  builder,
-			Model:    model,
-			Type:     gtype,
-			BackWood: backWood,
-			TopWood:  topWood,
-		},
+		Spec: guitar.NewGuitarSpec(
+			builder,
+			model,
+			gtype,
+			backWood,
+			topWood,
+		),
 	}
 
 	i.guitars = append(i.guitars, g)

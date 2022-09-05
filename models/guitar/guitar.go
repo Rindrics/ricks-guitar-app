@@ -35,7 +35,7 @@ const (
 type Guitar struct {
 	SerialNumber string
 	Price        float32
-	Spec         GuitarSpec
+	Spec         *GuitarSpec
 }
 
 func (g *Guitar) GetSerialNumber() string {
@@ -46,34 +46,44 @@ func (g *Guitar) GetPrice() float32 {
 	return g.Price
 }
 
-func (g *Guitar) GetSpec() GuitarSpec {
+func (g *Guitar) GetSpec() *GuitarSpec {
 	return g.Spec
 }
 
 type GuitarSpec struct {
-	Builder  Builder
-	Model    string
-	Type     Type
-	BackWood Wood
-	TopWood  Wood
+	builder  Builder
+	model    string
+	gtype    Type
+	backWood Wood
+	topWood  Wood
+}
+
+func NewGuitarSpec(builder Builder, model string, gtype Type, backWood, topWood Wood) *GuitarSpec {
+	return &GuitarSpec{
+		builder:  builder,
+		model:    model,
+		gtype:    gtype,
+		backWood: backWood,
+		topWood:  topWood,
+	}
 }
 
 func (gs *GuitarSpec) GetBuilder() Builder {
-	return gs.Builder
+	return gs.builder
 }
 
 func (gs *GuitarSpec) GetModel() string {
-	return gs.Model
+	return gs.model
 }
 
 func (gs *GuitarSpec) GetType() Type {
-	return gs.Type
+	return gs.gtype
 }
 
 func (gs *GuitarSpec) GetBackWood() Wood {
-	return gs.BackWood
+	return gs.backWood
 }
 
 func (gs *GuitarSpec) GetTopWood() Wood {
-	return gs.TopWood
+	return gs.topWood
 }
