@@ -42,24 +42,7 @@ func (i *Inventory) getGuitar(serialNumber string) *guitar.Guitar {
 func (i *Inventory) Search(spec guitar.GuitarSpec) []*guitar.Guitar {
 	var matched []*guitar.Guitar
 	for _, g := range i.guitars {
-		gs := g.GetSpec()
-		if builder := spec.GetBuilder(); builder != gs.GetBuilder() {
-			continue
-		}
-
-		if model := spec.GetModel(); model != gs.GetModel() {
-			continue
-		}
-
-		if gtype := spec.GetType(); gtype != gs.GetType() {
-			continue
-		}
-
-		if backWood := spec.GetBackWood(); backWood != gs.GetBackWood() {
-			continue
-		}
-
-		if topWood := spec.GetBackWood(); topWood != gs.GetBackWood() {
+		if !g.GetSpec().Matches(spec) {
 			continue
 		}
 		matched = append(matched, g)

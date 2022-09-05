@@ -87,3 +87,22 @@ func (gs *GuitarSpec) GetBackWood() Wood {
 func (gs *GuitarSpec) GetTopWood() Wood {
 	return gs.topWood
 }
+
+func (gs *GuitarSpec) Matches(searchSpec GuitarSpec) bool {
+	if gs.GetBuilder() != searchSpec.GetBuilder() {
+		return false
+	}
+	if gs.GetModel() != searchSpec.GetModel() {
+		return false
+	}
+	if gs.GetType() != searchSpec.GetType() {
+		return false
+	}
+	if gs.GetBackWood() != searchSpec.GetBackWood() {
+		return false
+	}
+	if gs.GetTopWood() != searchSpec.GetTopWood() {
+		return false
+	}
+	return true
+}
