@@ -59,21 +59,21 @@ type GuitarSpec struct {
 }
 
 func (gs *GuitarSpec) GetBuilder() Builder {
-	return gs.Builder
+	return gs.builder
 }
 
 func (gs *GuitarSpec) GetModel() string {
-	return gs.Model
+	return gs.model
 }
 
 func (gs *GuitarSpec) GetType() Type {
-	return gs.Type
+	return gs.gtype
 }
 
 func (gs *GuitarSpec) GetBackWood() Wood {
-	return gs.BackWood
+	return gs.backWood
 }
 
 func (gs *GuitarSpec) GetTopWood() Wood {
-	return gs.TopWood
+	return gs.topWood
 }
